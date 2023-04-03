@@ -12,6 +12,29 @@ button.addEventListener('click', () => {
 })
 
 //TODO: Create a timer/CountDown
+
+var timeLeft = 30;
+var elem =
+document.getElementByID(
+    'Timer');
+var timerId = 
+setInterval(countdown, 
+    1000);
+
+function countdown() {
+    if (timeLeft == 0) {
+    
+    clearTimeout(timerId);
+        doSomething();
+    } else {
+        elem.innerHTML = 
+    timeLeft + 'seconds remaining';
+        timeLeft--;
+    }
+ }
+
+    /*rest of the code*/
+
 //TODO: When timer starts, a question should appear
 
 //TODO: Create Questions
