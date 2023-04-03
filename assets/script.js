@@ -11,7 +11,29 @@ button.addEventListener('click', () => {
 
 })
 
+function Start() {
+    var x = document.createElement ("button");
+    var t = document.createTextNode("Let's Get It!");
+    x.appendChild(t);
+    document.body.appendChild(x);
+}
+
 //TODO: Create a timer/CountDown
+
+var timeLeft = 30;
+var elem = document.getElementById('Timer');
+var timerId = setInterval('coundown', 1000);
+
+function countdown() {
+    if (timeLeft ==0) {
+        clearTimeout(timerId);
+
+    } else {
+        elem.innerHTML = timeLeft + 'seconds remaining';
+            timeLeft--;
+    }    
+ }
+
 //TODO: When timer starts, a question should appear
 
 //TODO: Create Questions
