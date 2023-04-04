@@ -2,58 +2,124 @@
 //TODO: Create HTML for quiz
 //ToDo: Create a start button
 
-const button =document.createElement('button')
 
-button.innerText = "Start Quiz"
 
-button.addEventListener('click', () => {
-    alert("Get Ready...Go!")
-
-})
-
-function Start() {
-    var x = document.createElement ("button");
-    var t = document.createTextNode("Let's Get It!");
-    x.appendChild(t);
-    document.body.appendChild(x);
-}
 
 //TODO: Create a timer/CountDown
 
-var timeLeft = 30;
-var elem = document.getElementById('Timer');
-var timerId = setInterval('coundown', 1000);
 
-function countdown() {
-    if (timeLeft ==0) {
-        clearTimeout(timerId);
-
-    } else {
-        elem.innerHTML = timeLeft + 'seconds remaining';
-            timeLeft--;
-    }    
- }
 
 //TODO: When timer starts, a question should appear
 
 //TODO: Create Questions
 
-var questList = document.getElementsByClassName("Questions")[0]
-    answList = document.getElementsByClassName("Answers")[0],
-    correct = document.getElementsByClassName("Answers")[0],
-    current = 0,
 
-allQuestions = {
-    "Who is the Leader of BTS?" : ["Kim Seokjin", "Min Yoongi", "Kim Namjoon", 2],
 
-    "Who is the youngest of TomorrowxTogether?" : ["Huening Kai", "Choi Beomgyu", "Choi Yeonjun", 0]
+
+
+
+function showResults(){}
+
+    //This will display the quiz right away-- it is important to adjust this and have the questions come up one at a time
+nextButton.addEventListener('click', nextQuestion);
+submitButton.addEventListener('click', showResults);
+
+
+function buildQuiz() {
+    const output = [];
+
+youKnowSoobin.forEach( (currentQ, questionN) => {
+    
+
+    const answers = [];
+
+    for(letter in currentQ.answers) {
+        answers.push(
+            `<label>
+                <input type="radio" name="question${questionN}" value="${letter}"></input>
+                ${letter} :
+                    ${currentQ.answers[letter]}
+                </label>`
+            );
+        }
+
+        output.push(
+            `<div class ="slide">
+            <div class ="question"> ${currentQ.question} </div>
+            <div class ="answers"> ${answers.join('')} </div>`
+        );
+
+    }
+);
+
+quizContainer.innerHTML = output.join(' ');
+
 }
+
+function showResults(){
+
+    const answerContainer =
+    quiz.Container.querySelectorAll('.answers');
+
+    let numCorrect = 0;
+
+youKnowSoobin.forEach( (currentQ, questionN) => {
+        const answerContainer = answerContainer[questionN];
+        const selector = `input[name=question${questionN}]: checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+        
+     if (userAnswer == "true") {
+                result[0].innerHTML = "True";
+                result[0].style.color = "green";
+                numCorrect++;
+            } else {
+                result[0].innerHTML = "False";
+                result[0].style.color = "red";
+    }
+});
+
+resultsConstainer.innterHTML = `${numCorrect} out of ${youKnowSoobin.length}`;
+
+
+const quizContainer = document.getElementById('quiz');
+const resultsConstainer = document.getElementById("results");
+const nextButton = document.getElementById ("next");
+const submitButton = document.getElementById ("submit");
+
+const youKnowSoobin = [
+    { 
+    q: "What is TxTs debut album?",
+    a: [ {text: "Dream Chapter: Magic", isCorrect: false},
+        {text: "No More Dream", isCorrect: false},
+        {text: "Dream Chapter: Star", isCorrect: true},
+    ]
+    
+},
+{  
+    q: "What company did Enhypen debut under?",
+    a: [ { text: "BigHit", isCorrect: false },
+         { text: "BeLift", isCorrect: true },
+         { text: "JYP", isCorrect: false}
+    ]
+},
+{   
+    q: "Which Korean Act beat out BTS on the Billboard Top 100?", 
+    a: [ { text: "Stray Kids", isCorrect: false },
+         { text: "Black Pink", isCorrect: false },
+         { text: "BTS", isCorrect: true},
+    ]
+}
+
+];
+
+
 
 
 //TODO: When a question is answered
     //When answered correctly, move on to next questioin
     //When answered incorrectly, deduct time from the countdown
 //TODO: Log answers
+    //local storage
 //TODO: Allow user to log initials with score
 
 
