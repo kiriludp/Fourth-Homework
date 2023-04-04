@@ -12,17 +12,66 @@
 //TODO: When timer starts, a question should appear
 
 //TODO: Create Questions
+var time=60
 
+const youKnowSoobin = [
+    { 
+    q: "What is TxTs debut album?",
+    a: [ {text: "Dream Chapter: Magic", isCorrect: false},
+        {text: "No More Dream", isCorrect: false},
+        {text: "Dream Chapter: Star", isCorrect: true},
+    ]
+    
+},
+{  
+    q: "What company did Enhypen debut under?",
+    a: [ { text: "BigHit", isCorrect: false },
+         { text: "BeLift", isCorrect: true },
+         { text: "JYP", isCorrect: false}
+    ]
+},
+{   
+    q: "Which Korean Act beat out BTS on the Billboard Top 100?", 
+    a: [ { text: "Stray Kids", isCorrect: false },
+         { text: "Black Pink", isCorrect: false },
+         { text: "BTS", isCorrect: true},
+    ]
+}
 
+];
+var index=0
+function nextQuestion() {
+    index++
+    document.getElementById("question").textContent=youKnowSoobin[index].q
+    document.getElementById("option1").textContent=youKnowSoobin[index].a[0].text
+    document.getElementById("option2").textContent=youKnowSoobin[index].a[1].text
+    document.getElementById("option3").textContent=youKnowSoobin[index].a[2].text
+}
+function startQuiz() {
+    console.log(index)
+    document.getElementById("question").textContent=youKnowSoobin[index].q
+    document.getElementById("option1").textContent=youKnowSoobin[index].a[0].text
+    document.getElementById("option2").textContent=youKnowSoobin[index].a[1].text
+    document.getElementById("option3").textContent=youKnowSoobin[index].a[2].text
+        setInterval(function(){
+        time--
+            document.getElementById("timer").textContent=time
+    },1000)
+}
 
+var startButton=document.querySelector("#start");
+var nextButton=document.querySelector("#next");
+var submitButton=document.querySelector("#submit");
 
-
-
-function showResults(){}
-
-    //This will display the quiz right away-- it is important to adjust this and have the questions come up one at a time
+startButton.addEventListener('click', startQuiz);
 nextButton.addEventListener('click', nextQuestion);
 submitButton.addEventListener('click', showResults);
+
+// function showResults(){}
+
+    //This will display the quiz right away-- it is important to adjust this and have the questions come up one at a time
+
+
 
 
 function buildQuiz() {
@@ -57,7 +106,9 @@ quizContainer.innerHTML = output.join(' ');
 }
 
 function showResults(){
-
+    document.getElementById("scores").style="display:block"
+    document.getElementById("quizContent").style="display:none"
+    document.getElementById("timer").style="display:none"
     const answerContainer =
     quiz.Container.querySelectorAll('.answers');
 
@@ -86,34 +137,10 @@ const resultsConstainer = document.getElementById("results");
 const nextButton = document.getElementById ("next");
 const submitButton = document.getElementById ("submit");
 
-const youKnowSoobin = [
-    { 
-    q: "What is TxTs debut album?",
-    a: [ {text: "Dream Chapter: Magic", isCorrect: false},
-        {text: "No More Dream", isCorrect: false},
-        {text: "Dream Chapter: Star", isCorrect: true},
-    ]
-    
-},
-{  
-    q: "What company did Enhypen debut under?",
-    a: [ { text: "BigHit", isCorrect: false },
-         { text: "BeLift", isCorrect: true },
-         { text: "JYP", isCorrect: false}
-    ]
-},
-{   
-    q: "Which Korean Act beat out BTS on the Billboard Top 100?", 
-    a: [ { text: "Stray Kids", isCorrect: false },
-         { text: "Black Pink", isCorrect: false },
-         { text: "BTS", isCorrect: true},
-    ]
+
+
+
 }
-
-];
-
-
-
 
 //TODO: When a question is answered
     //When answered correctly, move on to next questioin
