@@ -1,0 +1,36 @@
+:root {
+    --main-text: rgb(149, 117, 205);
+    --bg-main: rgb(209, 196, 233);
+    --sub-t: rgb(124,77,255); 
+    --qbutton: rgb(228, 139, 174);
+    --textsub: rgb(204, 156, 172);
+    --bb: #5c344c;
+
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--main-text);
+    text-align: center;
+
+}
+
+
+h1 {
+    color: var(--textsub);
+    font-size: 40px;
+    text-align: center;
+
+}
+
+h2 {
+    color: var(--sub-t);
+    text-align: center;
+}
+
+
+#scores {
+    padding: 20px;
+    
+
+}

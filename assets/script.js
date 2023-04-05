@@ -12,34 +12,45 @@
 //TODO: When timer starts, a question should appear
 
 //TODO: Create Questions
+
+//var timeEl = document.getElementById("timer");
+
 var time=60
+
+//function setTime() {
+  //
 
 const youKnowSoobin = [
     { 
     q: "What is TxTs debut album?",
-    a: [ {text: "Dream Chapter: Magic", isCorrect: false},
+    a: [{text:"Dream Chapter: Magic", isCorrect: false},
         {text: "No More Dream", isCorrect: false},
         {text: "Dream Chapter: Star", isCorrect: true},
-    ]
-    
+    ],
+    correctAnswer: 'option3'
 },
 {  
     q: "What company did Enhypen debut under?",
     a: [ { text: "BigHit", isCorrect: false },
          { text: "BeLift", isCorrect: true },
          { text: "JYP", isCorrect: false}
-    ]
+    ],
+    correctAnswer: 'option2'
 },
 {   
     q: "Which Korean Act beat out BTS on the Billboard Top 100?", 
     a: [ { text: "Stray Kids", isCorrect: false },
          { text: "Black Pink", isCorrect: false },
          { text: "BTS", isCorrect: true},
-    ]
+    ],
+    correctAnswer: "option3"
 }
 
 ];
+
 var index=0
+
+
 function nextQuestion() {
     index++
     document.getElementById("question").textContent=youKnowSoobin[index].q
@@ -47,6 +58,7 @@ function nextQuestion() {
     document.getElementById("option2").textContent=youKnowSoobin[index].a[1].text
     document.getElementById("option3").textContent=youKnowSoobin[index].a[2].text
 }
+
 function startQuiz() {
     console.log(index)
     document.getElementById("question").textContent=youKnowSoobin[index].q
@@ -61,18 +73,13 @@ function startQuiz() {
 
 var startButton=document.querySelector("#start");
 var nextButton=document.querySelector("#next");
-var submitButton=document.querySelector("#submit");
+var submitButton=document.querySelector("#submit")
 
 startButton.addEventListener('click', startQuiz);
 nextButton.addEventListener('click', nextQuestion);
 submitButton.addEventListener('click', showResults);
 
 // function showResults(){}
-
-    //This will display the quiz right away-- it is important to adjust this and have the questions come up one at a time
-
-
-
 
 function buildQuiz() {
     const output = [];
@@ -101,9 +108,13 @@ youKnowSoobin.forEach( (currentQ, questionN) => {
     }
 );
 
+}
+
 quizContainer.innerHTML = output.join(' ');
 
-}
+// function showResults(){}
+
+    //This will display the quiz right away-- it is important to adjust this and have the questions come up one at a tim
 
 function showResults(){
     document.getElementById("scores").style="display:block"
@@ -114,7 +125,7 @@ function showResults(){
 
     let numCorrect = 0;
 
-youKnowSoobin.forEach( (currentQ, questionN) => {
+    youKnowSoobin.forEach( (currentQ, questionN) => {
         const answerContainer = answerContainer[questionN];
         const selector = `input[name=question${questionN}]: checked`;
         const userAnswer = (answerContainer.querySelector(selector) || {}).value;
@@ -127,26 +138,24 @@ youKnowSoobin.forEach( (currentQ, questionN) => {
                 result[0].innerHTML = "False";
                 result[0].style.color = "red";
     }
-});
+    });
+    
+resultsContainer.innerHTML = '${numCorrect} out of ${youKnowSoobin.length}';
 
-resultsConstainer.innterHTML = `${numCorrect} out of ${youKnowSoobin.length}`;
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById("results");
+var nextButton = document.getElementById ("next");
+var submitButton = document.getElementById ("submit");
 
-
-const quizContainer = document.getElementById('quiz');
-const resultsConstainer = document.getElementById("results");
-const nextButton = document.getElementById ("next");
-const submitButton = document.getElementById ("submit");
-
+    }
 
 
 
-}
-
-//TODO: When a question is answered
-    //When answered correctly, move on to next questioin
+//TODO: When a question is answered move on to next question
     //When answered incorrectly, deduct time from the countdown
+
 //TODO: Log answers
     //local storage
-//TODO: Allow user to log initials with score
 
+//TODO: Allow user to log initials with score
 
