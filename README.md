@@ -40,6 +40,8 @@ THEN I can save my initials and my score
 
 ## Deployment ##
 
+<a href link= "https://kiriludp.github.io/Fourth-Homework/"> Deployed Page </a>
+
 <center><font size = "+3">
 <img src= "assets\images\Opening_Page.PNG" width= 601x height= 402px> </br>
 <p>Opening Page</p>
