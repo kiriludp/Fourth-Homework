@@ -38,12 +38,24 @@ THEN I can save my initials and my score
 ```
 
 
-Special thanks to:
+## Deployment ##
 
-University of Washington Coding Bootcamp
-Bootcamp Instructor and TAs
-Kara Anderson
-Hydration
-Tutoring session with Jacob Carver
-W3Schools
+<center><font size = "+3">
+<img src= "assets\images\Opening_Page.PNG" width= 601x height= 402px> </br>
+<p>Opening Page</p>
+<img src = "assets\images\Submit.PNG" width = 811px height= 466px></br>
+
+<p> Submit Button</p></font></center>
+
+</br>
+</br>
+<center><font size = "+1", color = "pink">
+<font size = "+2">Special thanks to:</font>
+
+University of Washington Coding Bootcamp</br>
+Bootcamp Instructor and TAs</br>
+Kara Anderson</br>
+<font color = "aqua">Hydration</br></font>
+Tutoring session with Jacob Carver</br>
+W3Schools</br>
 
