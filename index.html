@@ -22,29 +22,31 @@
             <p>If you answer inccorectly, 5 seconds will be deducted from your time.</p>
             <p>When the timer runs out-- the quiz is done!</p>
 
-        <div id="quiz"></div>
-        <button id="start">Start Quiz</button>
-        <button id="next">Next Question</button>
-        <button id="submit">Submit</button>
-        <div id="results"></div>
-       
-        <div class="quizContent">
-            <h3 id="question"></h3>
-            <answer>
-                <ul id="optsList"></ul>
-            </answer> 
-        </div>
-        <div>
-            <p id="timer"></p>
-        </div>
-        <div id="scores" style="display:none">
-            <form action="">
-                <input type="text"label="initials:"><button id="sumbitScore">Submit</button>
-            </form>
-        </div>
-    </main>
-    <script src="assets\script.js"></script>
-</body>
+            <div id="game"></div>
+            <button id="start">Start Quiz</button>
+            <button id="next">Next Question</button>
+            <button id="submit">Submit</button>
+                <p id="message"></p>
+            <div id="results"></div>
+            
+            <div class="quiz-container" id="quizContent">
+                <h3 id="question"></h3>
+                <button class= "answer" id="option1"></button>
+                <button class= "answer" id="option2"></button>
+                <button class ="answer" id="option3"></button>
+    
+            </div>
+            <div>
+                <p id="timer"></p>
+            </div>
+            <div id="scores" style="display:none">
+                <form action="">
+                    <input type="text"label="initials:"><button id="sumbitScore">Record</button>
+                </form>
+            </div>
+        </main>
+        <script src="assets\script.js"></script>
+    </body>
 
 </html>
   

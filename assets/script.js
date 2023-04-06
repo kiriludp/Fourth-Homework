@@ -1,4 +1,3 @@
-
 //TODO: Create HTML for quiz
 //ToDo: Create a start button
 
@@ -158,4 +157,3 @@ var submitButton = document.getElementById ("submit");
     //local storage
 
 //TODO: Allow user to log initials with score
-
